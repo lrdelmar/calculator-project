@@ -1,0 +1,18 @@
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 1rem;
+
+  button {
+    &.zero {
+      grid-column: 1 / 3;
+    }
+
+    &.dot {
+      grid-column: 3 / 5;
+    }
+  }
+}
