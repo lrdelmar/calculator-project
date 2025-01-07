@@ -1,9 +1,15 @@
+// Utilities
 @use './utilities/variables';
+@use './utilities/functions';
 
+// Base CSS
 @use './base/reset';
 @use './base/base';
 @use './base/font';
 
+// CSS Components
 @use './components/button';
 @use './components/calculator';
+
+// CSS Layout
 @use './layout/grid';

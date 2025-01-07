@@ -15,9 +15,9 @@
   <body>
     <main>
       <div class="calculator">
-        <input type="text" id="display" disabled />
+        <input type="text" class="display" id="display" maxlength="" />
         <div class="grid">
-          <button>
+          <button id="clear">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -25,8 +25,6 @@
               stroke-width="1.5"
               stroke="currentColor"
               class="size-6 button--icon"
-              width="24"
-              height="24"
             >
               <path
                 stroke-linecap="round"
@@ -35,9 +33,9 @@
               />
             </svg>
           </button>
-          <button>&percnt;</button>
-          <button>&plusmn;</button>
-          <button>
+          <button id="percent">&percnt;</button>
+          <button id="negate">&plusmn;</button>
+          <button id="delete">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -45,8 +43,6 @@
               stroke-width="1.5"
               stroke="currentColor"
               class="size-6 button--icon"
-              width="24"
-              height="24"
             >
               <path
                 stroke-linecap="round"
@@ -55,22 +51,22 @@
               />
             </svg>
           </button>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button>&minus;</button>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>&divide;</button>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>&times;</button>
-          <button>&dot;</button>
-          <button>0</button>
-          <button>&equals;</button>
-          <button>&plus;</button>
+          <button id="7">7</button>
+          <button id="8">8</button>
+          <button id="9">9</button>
+          <button id="subtract">&minus;</button>
+          <button id="4">4</button>
+          <button id="5">5</button>
+          <button id="6">6</button>
+          <button id="divide">&divide;</button>
+          <button id="1">1</button>
+          <button id="2">2</button>
+          <button id="3">3</button>
+          <button id="multiply">&times;</button>
+          <button id="decimal">&dot;</button>
+          <button id="0">0</button>
+          <button id="equals">&equals;</button>
+          <button id="add">&plus;</button>
         </div>
       </div>
     </main>

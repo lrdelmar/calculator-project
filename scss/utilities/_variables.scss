@@ -1,4 +1,9 @@
+@use '../utilities/functions' as *;
+
 $background-colour: hsl(234, 28%, 80%);
 $display-colour: #bbbbbb;
 $button-colour: hsl(243, 20%, 60%);
 $shadow-colour: hsl(0, 0%, 5%);
+
+$tablet-view: rem(768);
+$desktop-view: rem(1028);

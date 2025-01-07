@@ -1,4 +1,5 @@
 @use '../utilities/variables' as *;
+@use '../utilities/functions' as *;
 
 button {
   display: flex;
@@ -7,15 +8,28 @@ button {
   justify-content: center;
   align-items: center;
   border: 0;
-  border-radius: 50px;
+  border-radius: rem(100);
   background-color: $button-colour;
   color: #fff;
   font-weight: 500;
-  font-size: 1.8rem;
-  box-shadow: 0 2px 5px $shadow-colour;
+  font-size: rem(30);
+  box-shadow: 0 rem(2) rem(5) $shadow-colour;
 
   &:hover {
     background-color: darken($button-colour, 5%);
-    box-shadow: inset 1px 2px 3px lighten($shadow-colour, 20%);
+    box-shadow: inset rem(1) rem(2) rem(3) lighten($shadow-colour, 20%);
+  }
+
+  svg.button--icon {
+    width: rem(24);
+    aspect-ratio: 1 / 1;
+  }
+
+  @media screen and (min-width: $tablet-view) {
+    font-size: rem(50);
+
+    svg.button--icon {
+      width: rem(60);
+    }
   }
 }
