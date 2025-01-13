@@ -6,29 +6,36 @@
   width: auto;
   min-width: rem(320);
   height: auto;
-  padding: rem(30);
-  border-radius: rem(50);
+  padding: rem(20);
+  border-radius: rem(25);
   box-shadow: 0 rem(2) rem(5) $shadow-colour;
-  border: rem(10) ridge $button-colour;
+  border: rem(5) ridge $button-colour;
 
   input.display {
     width: 100%;
     min-height: rem(64);
     padding: rem(10);
     margin-bottom: rem(20);
-    border-radius: rem(30);
-    color: #373737;
-    font-size: rem(48);
+    border-radius: rem(15);
+    background-color: $display-colour;
+    color: $text-colour;
+    font-size: rem(22);
     text-align: right;
-    border: rem(8) ridge $button-colour;
+    border: rem(5) ridge $button-colour;
     box-shadow: inset rem(2) rem(5) rem(10) lighten($shadow-colour, 50%);
   }
 
   @media screen and (min-width: $tablet-view) {
     min-width: rem(600);
+    border-radius: rem(40);
+    padding: rem(30);
+    border: rem(10) ridge $button-colour;
 
     input.display {
-      min-height: 8rem;
+      min-height: rem(128);
+      font-size: rem(48);
+      border-radius: rem(25);
+      border: rem(10) ridge $button-colour;
     }
   }
 }

@@ -19,8 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Convert the current input to a percentage (divide by 100)
     percent: () => {
       if (currentInput) {
-        currentInput = (parseFloat(currentInput) / 100).toString(); // Convert to percentage
-        display.value = currentInput; // Update the display
+        const operators = /[+\-*/]/g; // Regex to find operators
+        const lastOperatorIndex = currentInput.lastIndexOf(
+          currentInput.match(operators)?.pop() || ''
+        );
+        // const lastOperator = currentInput[lastOperatorIndex]; // Identify the last operator
+        // const beforeOperator = currentInput.slice(0, lastOperatorIndex); // Value before the operator
+        const afterOperator = currentInput.slice(lastOperatorIndex + 1); // Value after the operator
+
+        if (!isNaN(afterOperator)) {
+          const percentageValue = parseFloat(afterOperator) / 100;
+
+          // Update the input by replacing the percentage calculation
+          // currentInput = beforeOperator + lastOperator + percentageValue;
+          currentInput =
+            currentInput.slice(0, lastOperatorIndex + 1) + percentageValue; // Replace afterOperator with percenatage
+          display.value = currentInput; // Update display with the new value
+        }
       }
     },
 
