@@ -16,26 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
       display.value = ''; // Update the display to show an empty string
     },
 
-    // Convert the current input to a percentage (divide by 100)
     percent: () => {
-      if (currentInput) {
-        const operators = /[+\-*/]/g; // Regex to find operators
-        const lastOperatorIndex = currentInput.lastIndexOf(
-          currentInput.match(operators)?.pop() || ''
-        );
-        // const lastOperator = currentInput[lastOperatorIndex]; // Identify the last operator
-        // const beforeOperator = currentInput.slice(0, lastOperatorIndex); // Value before the operator
-        const afterOperator = currentInput.slice(lastOperatorIndex + 1); // Value after the operator
+      const operators = /[+\-*/]/g; // Regex to find operators
+      const lastOperatorIndex = currentInput.lastIndexOf(
+        currentInput.match(operators)?.pop() || ''
+      ); // Find the last operator
+      const beforeOperator = currentInput.slice(0, lastOperatorIndex); // Value before the operator
+      const afterOperator = currentInput.slice(lastOperatorIndex + 1); // Value after the operator
+      const lastOperator = currentInput[lastOperatorIndex]; // Identify the last operator
 
-        if (!isNaN(afterOperator)) {
-          const percentageValue = parseFloat(afterOperator) / 100;
+      if (!isNaN(afterOperator) && afterOperator) {
+        // Parse numbers before and after the operator
+        const base = parseFloat(beforeOperator || '1'); // Default base is 1 if no operator exists
+        const percentage = parseFloat(afterOperator) / 100;
 
-          // Update the input by replacing the percentage calculation
-          // currentInput = beforeOperator + lastOperator + percentageValue;
+        // Handle percentage based on the operator
+        if (lastOperator === '*' || lastOperator === '/') {
+          // Multiply or divide by the percentage value
           currentInput =
-            currentInput.slice(0, lastOperatorIndex + 1) + percentageValue; // Replace afterOperator with percenatage
-          display.value = currentInput; // Update display with the new value
+            currentInput.slice(0, lastOperatorIndex + 1) + percentage;
+        } else {
+          // Add or subtract percentage of the base
+          const percentageValue = base * percentage;
+          currentInput =
+            currentInput.slice(0, lastOperatorIndex + 1) + percentageValue;
         }
+
+        display.value = currentInput; // Update display
+      } else if (currentInput && !isNaN(currentInput)) {
+        // Handle standalone percentages
+        const percentageValue = parseFloat(currentInput) / 100;
+        currentInput = percentageValue.toString();
+        display.value = currentInput;
       }
     },
 
@@ -70,21 +82,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add a decimal point to the input
     decimal: () => {
-      if (!currentInput.includes('.')) {
-        // Ensure only one decimal point is allowed
+      const operators = /[+\-*/]/g; // Regex to identify operators
+      const lastOperatorIndex = currentInput.lastIndexOf(
+        currentInput.match(operators)?.pop() || ''
+      ); // Find last operator
+      const lastNumber = currentInput.slice(lastOperatorIndex + 1); // Extract the last number
+
+      // Only add a decimal point if the last number doesn't already have one
+      if (!lastNumber.includes('.')) {
         currentInput += '.';
-        display.value = currentInput; // Update the display
+        display.value = currentInput;
       }
     },
 
     // Evaluate the current expression and display the result
     equals: () => {
       try {
-        currentInput = eval(currentInput).toString(); // Evaluate the input using eval
-        display.value = currentInput; // Update the display with the result
+        const result = eval(currentInput); // Evaluate the expression
+        currentInput = parseFloat(result).toFixed(2); // Convert result to 2 decimal places
+        display.value = currentInput; // Update the display
       } catch (error) {
-        display.value = 'Error'; // Show an error message for invalid input
-        currentInput = ''; // Reset the input
+        display.value = 'Error'; // Handle invalid expressions
+        currentInput = ''; // Reset input
       }
     },
   };
