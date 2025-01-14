@@ -15,9 +15,14 @@ button {
   font-size: rem(30);
   box-shadow: 0 rem(2) rem(5) $shadow-colour;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: darken($button-colour, 5%);
     box-shadow: inset rem(1) rem(2) rem(3) lighten($shadow-colour, 20%);
+  }
+
+  &:focus {
+    border: 5px solid $focus-colour;
   }
 
   svg.button--icon {

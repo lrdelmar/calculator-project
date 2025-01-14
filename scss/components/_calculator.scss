@@ -9,7 +9,6 @@
   padding: rem(20);
   border-radius: rem(25);
   box-shadow: 0 rem(2) rem(5) $shadow-colour;
-  border: rem(5) ridge $button-colour;
 
   input.display {
     width: 100%;
@@ -21,7 +20,6 @@
     color: $text-colour;
     font-size: rem(22);
     text-align: right;
-    border: rem(5) ridge $button-colour;
     box-shadow: inset rem(2) rem(5) rem(10) lighten($shadow-colour, 50%);
   }
 
@@ -29,13 +27,11 @@
     min-width: rem(600);
     border-radius: rem(40);
     padding: rem(30);
-    border: rem(10) ridge $button-colour;
 
     input.display {
       min-height: rem(128);
       font-size: rem(48);
       border-radius: rem(25);
-      border: rem(10) ridge $button-colour;
     }
   }
 }

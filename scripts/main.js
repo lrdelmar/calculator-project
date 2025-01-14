@@ -98,8 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Evaluate the current expression and display the result
     equals: () => {
       try {
-        const result = eval(currentInput); // Evaluate the expression
-        currentInput = parseFloat(result).toFixed(2); // Convert result to 2 decimal places
+        let result = eval(currentInput); // Evaluate the expression
+        result = parseFloat(result).toFixed(2); // Convert result to 2 decimal places
+        if (result % 1 === 0) {
+          // If true, convert to an integer
+          currentInput = parseInt(result, 10).toString();
+        } else {
+          // Otherwise, keep it as a float
+          currentInput = result.toString();
+        }
+
         display.value = currentInput; // Update the display
       } catch (error) {
         display.value = 'Error'; // Handle invalid expressions

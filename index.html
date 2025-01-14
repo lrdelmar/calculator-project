@@ -33,9 +33,9 @@
   <body>
     <main>
       <div class="calculator">
-        <input type="text" class="display" id="display" maxlength="" />
+        <input type="text" class="display" id="display" disabled />
         <div class="grid">
-          <button id="clear">
+          <button type="button" id="clear" aria-label="clear">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -51,9 +51,13 @@
               />
             </svg>
           </button>
-          <button id="percent">&percnt;</button>
-          <button id="negate">&plusmn;</button>
-          <button id="delete">
+          <button type="button" id="percent" aria-label="percentage">
+            &percnt;
+          </button>
+          <button type="button" id="negate" aria-label="negate">
+            &plusmn;
+          </button>
+          <button type="button" id="delete" aria-label="delete last">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -69,22 +73,30 @@
               />
             </svg>
           </button>
-          <button id="7">7</button>
-          <button id="8">8</button>
-          <button id="9">9</button>
-          <button id="subtract">&minus;</button>
-          <button id="4">4</button>
-          <button id="5">5</button>
-          <button id="6">6</button>
-          <button id="divide">&divide;</button>
-          <button id="1">1</button>
-          <button id="2">2</button>
-          <button id="3">3</button>
-          <button id="multiply">&times;</button>
-          <button id="decimal">&dot;</button>
-          <button id="0">0</button>
-          <button id="equals">&equals;</button>
-          <button id="add">&plus;</button>
+          <button type="button" id="7" aria-label="seven">7</button>
+          <button type="button" id="8" aria-label="eight">8</button>
+          <button type="button" id="9" aria-label="nine">9</button>
+          <button type="button" id="subtract" aria-label="subtract">
+            &minus;
+          </button>
+          <button type="button" id="4" aria-label="four">4</button>
+          <button type="button" id="5" aria-label="five">5</button>
+          <button type="button" id="6" aria-label="six">6</button>
+          <button type="button" id="divide" aria-label="divide">
+            &divide;
+          </button>
+          <button type="button" id="1" aria-label="one">1</button>
+          <button type="button" id="2" aria-label="two">2</button>
+          <button type="button" id="3" aria-label="three">3</button>
+          <button type="button" id="multiply" aria-label="multiply">
+            &times;
+          </button>
+          <button type="button" id="decimal" aria-label="decimal">&dot;</button>
+          <button type="button" id="0" aria-label="zero">0</button>
+          <button type="button" id="equals" aria-label="equals">
+            &equals;
+          </button>
+          <button type="button" id="add" aria-label="addition">&plus;</button>
         </div>
       </div>
     </main>
